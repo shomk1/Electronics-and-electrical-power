@@ -1,0 +1,20 @@
+#include
+<Stepper.h>
+
+const int stepsPerRevolution = 100; 
+
+
+Stepper myStepper(stepsPerRevolution, 2, 3, 4, 5);
+
+
+void setup() {
+}
+
+void loop() {
+  int sensorReading = analogRead(A2);
+  int motorSpeed = map(sensorReading, 0, 5, 10, 15);
+  if (motorSpeed > 0) {
+    myStepper.setSpeed(motorSpeed);
+    myStepper.step(stepsPerRevolution / 15);
+  }
+}
