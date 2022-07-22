@@ -1,0 +1,23 @@
+#include
+<Servo.h>
+
+int p = 0;
+
+Servo servo_4;
+
+void setup()
+{
+  servo_4.attach(4, 500, 2500);
+}
+
+void loop()
+{
+  for (p = 0; p <= 180; p += 1) {
+    servo_4.write(p);
+    delay(15);
+  }
+  for (p = 180; p >= 0; p -= 1) {
+    servo_4.write(p);
+    delay(15);
+  }
+}
